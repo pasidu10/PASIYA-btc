@@ -1,0 +1,24 @@
+name: Pasiya Crypto Signals
+
+on:
+  schedule:
+    - cron: '*/30 * * * *' # විනාඩි 30න් 30ට auto run වෙනවා
+  workflow_dispatch: # ඔයාට ඕන වෙලාවට manual run කරන්න බටන් එකක් එනවා
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/checkout@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Bot
+        run: node index.js
